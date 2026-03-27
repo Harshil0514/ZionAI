@@ -22,7 +22,7 @@ def login_user(username, password):
 
 # 2. UI: The Login/Signup Page
 if not st.session_state.authenticated:
-    st.title("🛡️ IMPERIUM TERMINAL ACCESS")
+    st.title("IMPERIUM TERMINAL ACCESS")
     tab1, tab2 = st.tabs(["Login", "Create Account"])
     
     with tab1:
@@ -78,7 +78,7 @@ with st.sidebar:
     if os.path.exists("Logo.png"):
         st.image("Logo.png", use_container_width=True)
     else:
-        st.markdown("<h1 style='text-align:center; color:#C5A059;'>⚜️ IMPERIUM</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align:center; color:#C5A059;'> IMPERIUM</h1>", unsafe_allow_html=True)
     
     st.markdown("<div><span class='status-pulse'></span><span style='color:#28a745; font-weight:bold;'>SYSTEM READY: STANDBY</span></div>", unsafe_allow_html=True)
     
@@ -108,7 +108,7 @@ with st.sidebar:
     bailout = st.number_input("Federal Bailout Injection ($)", value=0.0)
 
     st.markdown("---")
-    if st.button("⚡ EXECUTE SYSTEM ANALYSIS", use_container_width=True):
+    if st.button(" EXECUTE SYSTEM ANALYSIS", use_container_width=True):
         st.session_state.analysis_active = True
         st.session_state.ai_brief = None
 
@@ -221,7 +221,7 @@ if st.session_state.analysis_active:
         return pdf.output(dest='S').encode('latin-1', 'ignore')
 
     # --- 6. DASHBOARD UI ---
-    st.title(f"🛡️ IMPERIUM : {company_name.upper()}")
+    st.title(f" IMPERIUM : {company_name.upper()}")
     st.subheader(f"Institutional Solvency Terminal | {industry}")
     st.divider()
 
@@ -232,31 +232,31 @@ if st.session_state.analysis_active:
 
     c_graph, c_sens = st.columns([2, 1])
     with c_graph:
-        st.markdown(f"### 📉 Strategic Capital Erosion: {company_name}") 
+        st.markdown(f"###  Strategic Capital Erosion: {company_name}") 
         proj_y = [max(0, effective_cash + (final_net_flow * i)) for i in range(13)]
         fig = go.Figure(data=[go.Scatter(x=[f"Mo {i}" for i in range(13)], y=proj_y, fill='tozeroy', line=dict(color='#C5A059', width=5))])
         fig.update_layout(template="plotly_dark", height=400, margin=dict(l=0, r=0, t=20, b=0), paper_bgcolor='rgba(0,0,0,0)', xaxis_title="Months", yaxis_title="Liquidity ($)")
         st.plotly_chart(fig, use_container_width=True)
     with c_sens:
-        st.markdown("### 🧪 Stress Test: Revenue Flow") 
+        st.markdown("###  Stress Test: Revenue Flow") 
         st.table(pd.DataFrame(sensitivity_results, columns=["Rev Drop", "Net Flow", "Runway"]))
 
     act1, act2 = st.columns(2)
     with act1:
-        if st.button("⚜️ ACTIVATE AI WAR ROOM STRATEGY"):
+        if st.button(" ACTIVATE AI WAR ROOM STRATEGY"):
             with st.spinner("Analyzing Risks..."):
-                prompt = f"CRO for {industry} firm. Resilience: {resilience}/100. Provide 3 tactical moves. No '?' or '*'."
+                prompt = f"CRO for {industry} firm. Resilience: {resilience}/100. Provide 5 tactical moves. No '?' or '*'."
                 res = client.chat.completions.create(messages=[{"role": "user", "content": prompt}], model="llama-3.3-70b-versatile")
                 st.session_state.ai_brief = res.choices[0].message.content
                 st.rerun()
     with act2:
         try:
             pdf_bytes = generate_pdf()
-            st.download_button("📥 DOWNLOAD BOARD-READY PDF", data=pdf_bytes, file_name=f"Report_{company_name}.pdf", mime="application/pdf")
+            st.download_button(" DOWNLOAD BOARD-READY PDF", data=pdf_bytes, file_name=f"Report_{company_name}.pdf", mime="application/pdf")
         except: st.warning("Activate AI Strategy first.")
 
     if st.session_state.ai_brief:
         st.markdown(f"""<div style="background:#161B22; padding:25px; border-left:10px solid #C5A059; border-radius:10px; color: #E0E0E0;">{st.session_state.ai_brief}</div>""", unsafe_allow_html=True)
 else:
-    st.info("👋 Welcome to Imperium. Adjust variables and click 'EXECUTE SYSTEM ANALYSIS' to begin.")
+    st.info(" Welcome to Imperium. Adjust variables and click 'EXECUTE SYSTEM ANALYSIS' to begin.")
     st.image("https://via.placeholder.com/1200x400/0E1117/C5A059?text=SYSTEM+AWAITING+COMMAND+READY", use_container_width=True)
