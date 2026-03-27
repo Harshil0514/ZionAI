@@ -71,7 +71,7 @@ if "ai_brief" not in st.session_state:
     st.session_state.ai_brief = None
 
 # --- 3. AI CORE ---
-client = Groq(api_key="GROQ_API_KEY")
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- 4. SIDEBAR (CONTROLS) ---
 with st.sidebar:
