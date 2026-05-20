@@ -1,67 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zion AI Solutions | Imperium Terminal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <style>
-        body { background-color: #0E1117; color: #FFFFFF; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(197, 160, 89, 0.2); }
-        .gold-text { color: #C5A059; }
-        .gold-gradient { background: linear-gradient(135deg, #C5A059 0%, #8E6D29 100%); }
-        .hero-glow { position: absolute; top: -10%; left: 50%; width: 600px; height: 600px; background: rgba(197, 160, 89, 0.1); filter: blur(120px); border-radius: 50%; z-index: -1; transform: translateX(-50%); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zion AI Solutions | Institutional Risk Intelligence</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            space: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            zionGold: '#C5A059',
+            zionBlack: '#050505',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Glassmorphism utility that matches BlackRock/JP Morgan styles */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(197, 160, 89, 0.3);
+      transform: translateY(-4px);
+    }
+    /* Premium background glow elements */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+    }
+  </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="bg-zionBlack text-white font-space antialiased overflow-x-hidden selection:bg-zionGold selection:text-black">
 
-    <div class="hero-glow"></div>
+  <div class="fixed inset-0 radial-glow pointer-events-none z-0"></div>
 
-    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto animate__animated animate__fadeInDown">
-        <div class="text-2xl font-bold tracking-tighter">ZION<span class="gold-text">AI</span></div>
-        <div class="space-x-8 hidden md:flex text-sm uppercase tracking-widest opacity-70">
-            <a href="#" class="hover:text-[#C5A059] transition">Technology</a>
-            <a href="#" class="hover:text-[#C5A059] transition">Solutions</a>
-            <a href="#" class="hover:text-[#C5A059] transition">Security</a>
+  <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 px-6 md:px-12 py-5 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div id="logo-slot" class="w-9 h-9 border border-zionGold/50 flex items-center justify-center rounded overflow-hidden bg-white/5">
+        <img src="/logo.png" alt="Zion AI Logo" onerror="this.style.display='none'; document.getElementById('logo-text-fallback').style.display='block';" class="w-full h-full object-contain">
+        <span id="logo-text-fallback" class="hidden text-zionGold font-bold text-sm">Z</span>
+      </div>
+      <span class="text-xl font-bold tracking-tighter uppercase">Zion <span class="text-zionGold">AI</span></span>
+    </div>
+    
+    <div class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest opacity-60">
+      <a href="#about" class="hover:text-zionGold transition">Purpose</a>
+      <a href="#product" class="hover:text-zionGold transition">Imperium</a>
+      <a href="#pricing" class="hover:text-zionGold transition">Tiers</a>
+      <a href="#contact" class="hover:text-zionGold transition">Contact</a>
+    </div>
+
+    <div>
+      <a href="https://YOUR_STREAMLIT_APP_LINK.streamlit.app" target="_blank" class="px-5 py-2.5 border border-zionGold text-zionGold hover:bg-zionGold hover:text-black text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded-sm">
+        Launch Model Terminal
+      </a>
+    </div>
+  </nav>
+
+  <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 z-10">
+    <div class="space-y-6 max-w-5xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 border border-zionGold/30 bg-zionGold/5 rounded-full text-[10px] uppercase tracking-[0.2em] text-zionGold">
+        <i data-lucide="shield" class="w-3 h-3"></i> Systemic Solvency Engine Active
+      </div>
+      <h1 class="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.95] uppercase">
+        Quantifying Risk. <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-zionGold">Commanding Capital.</span>
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-lg tracking-wide font-light pt-4">
+        Zion AI Solutions builds advanced qualitative defense infrastructure for institutional enterprises and absolute balance sheet safety.
+      </p>
+      <div class="pt-8">
+        <a href="#pricing" class="px-10 py-5 bg-zionGold text-black font-black uppercase text-[11px] tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-lg shadow-zionGold/10 rounded-sm">
+          Initialize Risk Protocol
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="relative py-32 px-6 md:px-12 border-t border-white/5 bg-gradient-to-b from-transparent to-white/[0.01] z-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <p class="text-xs uppercase tracking-[0.3em] text-zionGold font-bold">Institutional Purpose</p>
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter uppercase">Defending solvency against systemic collapse.</h2>
+          <p class="text-gray-400 leading-relaxed text-sm md:text-base font-light">
+            Zion AI is engineered to give institutional asset managers and enterprise headers absolute transparency over volatility. We build defensive quantitative framework systems to measure, simulate, and nullify financial exposure before it manifests.
+          </p>
         </div>
-        <a href="YOUR_STREAMLIT_URL_HERE" class="px-6 py-2 border border-[#C5A059] text-[#C5A059] rounded-full text-sm font-bold hover:bg-[#C5A059] hover:text-black transition">ENTER TERMINAL</a>
-    </nav>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-6 glass-card rounded-xl">
+            <i data-lucide="activity" class="text-zionGold w-6 h-6 mb-4"></i>
+            <h3 class="text-xs font-bold uppercase tracking-widest mb-1">Vol Monitor</h3>
+            <p class="text-[11px] opacity-50">Real-time enterprise exposure mapping asset ratios.</p>
+          </div>
+          <div class="p-6 glass-card rounded-xl">
+            <i data-lucide="trending-up" class="text-zionGold w-6 h-6 mb-4"></i>
+            <h3 class="text-xs font-bold uppercase tracking-widest mb-1">Capital Efficiency</h3>
+            <p class="text-[11px] opacity-50">Optimize liquidity requirements by up to 34% securely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="max-w-5xl mx-auto text-center pt-20 pb-32 px-6">
-        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 animate__animated animate__fadeInUp">
-            Institutional Solvency. <br> <span class="gold-text">Zero Margin for Error.</span>
-        </h1>
-        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-            Zion AI Solutions presents **Imperium** — the world's most advanced black-swan simulation engine for corporate liquid reserves.
+  <section id="product" class="py-32 px-6 md:px-12 border-t border-white/5 z-10 relative">
+    <div class="max-w-7xl mx-auto text-center space-y-4 mb-24">
+      <p class="text-xs uppercase tracking-[0.3em] text-zionGold font-bold">Core Engine Deployment</p>
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase">PRODUCT PROTOCOL: IMPERIUM</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-sm font-light">
+        Imperium is our unified sovereign intelligence system processing complex real-time balance sheets into defensive tactical decisions.
+      </p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+      <div class="p-8 glass-card rounded-xl space-y-4">
+        <div class="w-10 h-10 border border-white/10 flex items-center justify-center rounded bg-white/5 text-zionGold">01</div>
+        <h3 class="text-lg font-bold uppercase tracking-tight">Stress Test Monitor</h3>
+        <p class="text-xs text-gray-400 font-light leading-relaxed">Runs non-stop calculations comparing debt maturity profiles against cash positions to forecast sudden structural liquidity drawdowns.</p>
+      </div>
+      <div class="p-8 glass-card rounded-xl space-y-4">
+        <div class="w-10 h-10 border border-white/10 flex items-center justify-center rounded bg-white/5 text-zionGold">02</div>
+        <h3 class="text-lg font-bold uppercase tracking-tight">Black Swan Mapping</h3>
+        <p class="text-xs text-gray-400 font-light leading-relaxed">Simulates catastrophic macroeconomic movements—including oil price shocks, flash interest rate changes, and unexpected supply-chain stops.</p>
+      </div>
+      <div class="p-8 glass-card rounded-xl space-y-4">
+        <div class="w-10 h-10 border border-white/10 flex items-center justify-center rounded bg-white/5 text-zionGold">03</div>
+        <h3 class="text-lg font-bold uppercase tracking-tight">AI Strategic Actions</h3>
+        <p class="text-xs text-gray-400 font-light leading-relaxed">Utilizes custom fine-tuned deep language models to convert quantitative stress graph metrics into safe, clear, board-ready strategic steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-32 px-6 md:px-12 border-t border-white/5 bg-gradient-to-t from-transparent to-white/[0.01] z-10 relative">
+    <div class="max-w-7xl mx-auto text-center space-y-4 mb-24">
+      <p class="text-xs uppercase tracking-[0.3em] text-zionGold font-bold">Secure Gate Access</p>
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase">Deployment Subscriptions</h2>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8 items-stretch">
+      
+      <div class="p-8 rounded-2xl glass-card flex flex-col justify-between space-y-8 relative overflow-hidden">
+        <div class="space-y-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-zionGold">Protocol: Basic</h3>
+              <p class="text-2xl font-bold mt-2">₹4,999<span class="text-xs opacity-40 font-light">/mo</span></p>
+            </div>
+            <span class="px-2 py-1 bg-white/5 border border-white/10 text-[9px] uppercase tracking-wider rounded">Tier 01</span>
+          </div>
+          <p class="text-xs text-gray-400 font-light">Essential metrics tracking for localized operations.</p>
+          <hr class="border-white/5">
+          <ul class="space-y-3 text-xs font-light text-gray-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Stress Test Monitor Core</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Core Financial Resilience Ratios</li>
+            <li class="flex items-center gap-2 opacity-30"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Black Swan Scenario Conditions</li>
+            <li class="flex items-center gap-2 opacity-30"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Live Dynamic Graph Interfaces</li>
+            <li class="flex items-center gap-2 opacity-30"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Advanced AI Strategy Logic</li>
+          </ul>
+        </div>
+        <div class="pt-6">
+          <a href="YOUR_STRIPE_BASIC_CHECKOUT_URL_HERE" class="block w-full py-3.5 text-center bg-white text-black font-bold text-[10px] uppercase tracking-widest hover:bg-zionGold transition duration-300 rounded-sm">
+            Deploy Basic Protocol
+          </a>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white/[0.03] border-2 border-zionGold flex flex-col justify-between space-y-8 relative scale-100 lg:scale-105 shadow-xl shadow-zionGold/5">
+        <div class="absolute top-0 right-0 bg-zionGold text-black font-black text-[8px] uppercase tracking-widest px-4 py-1 rounded-bl">Most Deployed</div>
+        <div class="space-y-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-zionGold">Protocol: Tactical</h3>
+              <p class="text-2xl font-bold mt-2">₹7,999<span class="text-xs opacity-40 font-light">/mo</span></p>
+            </div>
+            <span class="px-2 py-1 bg-zionGold/20 border border-zionGold/30 text-[9px] uppercase tracking-wider text-zionGold rounded">Tier 02</span>
+          </div>
+          <p class="text-xs text-gray-400 font-light">Complete stress testing simulations with dynamic UI views.</p>
+          <hr class="border-white/5">
+          <ul class="space-y-3 text-xs font-light text-gray-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Stress Test Monitor Core</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Core Financial Resilience Ratios</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Black Swan Scenario Conditions</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Live Dynamic Graph Interfaces</li>
+            <li class="flex items-center gap-2 opacity-30"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Advanced AI Strategy Logic</li>
+          </ul>
+        </div>
+        <div class="pt-6">
+          <a href="YOUR_STRIPE_TACTICAL_CHECKOUT_URL_HERE" class="block w-full py-3.5 text-center bg-zionGold text-black font-black text-[10px] uppercase tracking-widest hover:bg-white transition duration-300 rounded-sm">
+            Deploy Tactical Protocol
+          </a>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl glass-card flex flex-col justify-between space-y-8 relative overflow-hidden">
+        <div class="space-y-6">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-zionGold">Protocol: Sovereign</h3>
+              <p class="text-2xl font-bold mt-2">₹9,999<span class="text-xs opacity-40 font-light">/mo</span></p>
+            </div>
+            <span class="px-2 py-1 bg-white/5 border border-white/10 text-[9px] uppercase tracking-wider rounded">Tier 03</span>
+          </div>
+          <p class="text-xs text-gray-400 font-light">Total structural oversight with automated execution advice.</p>
+          <hr class="border-white/5">
+          <ul class="space-y-3 text-xs font-light text-gray-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Stress Test Monitor Core</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Core Financial Resilience Ratios</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Black Swan Scenario Conditions</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Live Dynamic Graph Interfaces</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-zionGold"></i> Advanced AI Strategy Logic Unlocked</li>
+          </ul>
+        </div>
+        <div class="pt-6">
+          <a href="YOUR_STRIPE_SOVEREIGN_CHECKOUT_URL_HERE" class="block w-full py-3.5 text-center bg-white text-black font-bold text-[10px] uppercase tracking-widest hover:bg-zionGold transition duration-300 rounded-sm">
+            Deploy Sovereign Protocol
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact" class="border-t border-white/5 bg-black/60 pt-24 pb-12 px-6 md:px-12 z-10 relative">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/5 pb-16">
+      
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 border border-zionGold flex items-center justify-center font-bold text-[10px] text-zionGold">Z</div>
+          <span class="font-bold tracking-tighter text-sm uppercase">Zion AI Solutions</span>
+        </div>
+        <p class="text-xs text-gray-500 font-light max-w-sm leading-relaxed">
+          Authorized quantitative execution platform providing predictive corporate solvency parameters.
         </p>
-        <div class="flex flex-col md:flex-row justify-center gap-4 animate__animated animate__fadeInUp animate__delay-1s">
-            <a href="YOUR_STREAMLIT_URL_HERE" class="gold-gradient px-10 py-4 rounded-xl text-black font-black text-lg hover:scale-105 transition shadow-[0_0_30px_rgba(197,160,89,0.3)]">START QUANT ANALYSIS</a>
-            <button class="glass px-10 py-4 rounded-xl font-bold hover:bg-white/5 transition">VIEW DOCUMENTATION</button>
-        </div>
-    </section>
+      </div>
 
-    <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-8">
-        <div class="glass p-8 rounded-3xl animate__animated animate__fadeInLeft">
-            <div class="text-4xl mb-4">📉</div>
-            <h3 class="text-xl font-bold gold-text mb-2">Shock Simulations</h3>
-            <p class="text-gray-400">Execute multi-variable stress tests including banking collapses, pandemics, and supply chain shocks.</p>
+      <div class="space-y-4">
+        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-zionGold">Communication Protocol</h4>
+        <div class="space-y-2 text-xs text-gray-400 font-light">
+          <p class="flex items-center gap-3"><i data-lucide="phone" class="w-3.5 h-3.5 text-zionGold"></i> +91 91167 40514</p>
+          <p class="flex items-center gap-3"><i data-lucide="mail" class="w-3.5 h-3.5 text-zionGold"></i> support@zionai.in.net</p>
         </div>
-        <div class="glass p-8 rounded-3xl animate__animated animate__fadeInUp">
-            <div class="text-4xl mb-4">🛡️</div>
-            <h3 class="text-xl font-bold gold-text mb-2">AI War Room</h3>
-            <p class="text-gray-400">Receive tactical, real-time defensive maneuvers powered by elite Llama-3 strategic logic.</p>
-        </div>
-        <div class="glass p-8 rounded-3xl animate__animated animate__fadeInRight">
-            <div class="text-4xl mb-4">📄</div>
-            <h3 class="text-xl font-bold gold-text mb-2">Executive Reporting</h3>
-            <p class="text-gray-400">Generate structured, board-ready PDF reports with automated capital erosion diagnostics.</p>
-        </div>
-    </section>
+      </div>
 
-    <footer class="border-t border-white/10 py-10 text-center opacity-50 text-sm">
-        &copy; 2026 ZION AI SOLUTIONS | ALL RIGHTS RESERVED | POWERED BY IMPERIUM QUANT ENGINE
-    </footer>
+      <div class="space-y-4">
+        <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-zionGold">Sovereign Domicile</h4>
+        <div class="space-y-1 text-xs text-gray-400 font-light">
+          <p class="flex items-start gap-3">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-zionGold mt-0.5"></i>
+            <span>Rajasthan, India</span>
+          </p>
+        </div>
+      </div>
 
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600 space-y-4 sm:space-y-0">
+      <div>&copy; 2026 Zion AI Solutions. All Rights Reserved.</div>
+      <div class="flex gap-6">
+        <a href="https://linkedin.com/in/harshilgehlot" target="_blank" class="hover:text-zionGold transition">Institutional LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
